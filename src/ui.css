@@ -60,14 +60,6 @@
   padding: 0 1em;
   line-height: 0;
 }
-}
-
-
-/* Logo YouTube */
-.ytlr-logo-entity {
-  visibility: hidden;
-}
-
 
 /* Pendant une video (sans segments), la barre rouge */
 .ytlr-progress-bar__slider {
