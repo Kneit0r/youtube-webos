@@ -1,28 +1,26 @@
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import Module from 'node:module';
-
 import eslintJs from '@eslint/js';
+import stylistic from '@stylistic/eslint-plugin';
 import prettierConfig from 'eslint-config-prettier';
-// @ts-expect-error No type definitions available for this package. https://github.com/ota-meshi/eslint-plugin-regexp/issues/723
 import * as regexpPlugin from 'eslint-plugin-regexp';
 import globals from 'globals';
+import pkgJson from './package.json' with { type: 'json' };
 
-const require = Module.createRequire(import.meta.url);
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-/** @type {'module' | 'commonjs'} */
 const defaultSourceType =
-  require(join(__dirname, 'package.json')).type ?? 'commonjs';
+  /**  @type {import('eslint').Linter.SourceType | undefined} */ (
+    pkgJson.type
+  ) ?? 'commonjs';
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @satisfies {import('eslint').Linter.Config[]} */
 export default [
   eslintJs.configs.recommended,
   prettierConfig,
   regexpPlugin.configs['flat/recommended'],
 
   {
+    plugins: {
+      '@stylistic': stylistic
+    },
+
     linterOptions: {
       reportUnusedDisableDirectives: 'error'
     },
@@ -45,6 +43,9 @@ export default [
       'no-implicit-globals': ['error'],
       'no-unused-vars': ['error', { vars: 'local', argsIgnorePattern: '^_' }],
       'no-useless-rename': ['error'],
+      'no-useless-computed-key': 'error',
+      'no-useless-constructor': 'error',
+      'no-useless-return': 'error',
       'arrow-body-style': ['error', 'as-needed'],
       'no-lonely-if': 'error',
       'prefer-object-has-own': 'error',
@@ -57,6 +58,10 @@ export default [
       'no-constructor-return': 'error',
       'no-unmodified-loop-condition': 'error',
       'no-useless-assignment': 'error',
+
+      // @stylistic rules - needed as prettier doesn't handle these
+      '@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
+      '@stylistic/object-curly-spacing': ['error', 'always'],
 
       /* eslint-plugin-regexp */
       'regexp/prefer-character-class': ['error', { minAlternatives: 2 }],
