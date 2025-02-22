@@ -5,7 +5,7 @@ const configOptions = new Map([
   ['upgradeThumbnails', { default: false, desc: 'Upgrade thumbnail quality' }],
   [
     'removeShorts',
-    { default: false, desc: 'Remove Shorts from subscriptions' }
+    { default: true, desc: 'Remove Shorts' }
   ],
   ['enableSponsorBlock', { default: true, desc: 'Enable SponsorBlock' }],
   [
