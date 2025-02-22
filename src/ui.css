@@ -60,3 +60,14 @@
   padding: 0 1em;
   line-height: 0;
 }
+
+/* Try remove sign-in nag from startup */
+
+#consent-bump,
+iron-overlay-backdrop,
+yt-upsell-dialog-renderer {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
