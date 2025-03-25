@@ -91,3 +91,29 @@
 .ytlr-tile-header-renderer__thumbnail-container {
   opacity: 0.5;
 }
+
+/* Block the top shelf nudge renderer */
+.zylon-ve.ytLrSectionListRendererContents-item-1.zylon-focus.ytLrFeedNudgeRendererFocused.ytLrFeedNudgeRendererHost.ytLrFeedNudgeRendererLeftAligned.ytLrFeedNudgeRendererAccentGradientBackgroundStyle {
+  display: none !important;
+}
+
+/* Hide the nudge renderer */
+.ytLrFeedNudgeRendererContainer {
+  display: none !important;
+}
+
+/* New rule for alert renderer */
+.zylon-ve.ytLrSectionListRendererContents-item-0.ytLrAlertWithActionsRendererHost.ytLrAlertWithActionsRendererSingleButtonAlert.ytLrAlertWithActionsRendererPromptType {
+  display: none !important;
+}
+
+/* Force darken the played progress bar */
+.ytLrProgressBarPlayed {
+  background-color: #008080 !important; /* Dark red */
+  background: #008080 !important; /* Cover gradients or inherited styles */
+}
+
+/* Darken the played progress bar */
+.ytLrProgressBarPlayed {
+  filter: brightness(50%) !important;
+}

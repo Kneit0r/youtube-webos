@@ -65,3 +65,32 @@ import './zoom.js';
   // Listen for hash changes (app uses hash routing)
   window.addEventListener('hashchange', updateDarkening);
 })();
+
+// Clean up homepage
+
+(function () {
+  'use strict';
+
+  // Inject CSS rules
+  const style = document.createElement('style');
+  style.textContent = `
+      /* Block the top shelf nudge renderer */
+      .zylon-ve.ytLrSectionListRendererContents-item-1.zylon-focus.ytLrFeedNudgeRendererFocused.ytLrFeedNudgeRendererHost.ytLrFeedNudgeRendererLeftAligned.ytLrFeedNudgeRendererAccentGradientBackgroundStyle {
+          display: none !important;
+      }
+  `;
+  document.head.appendChild(style);
+})();
+
+(function () {
+  'use strict';
+
+  // Inject CSS rule for ytLrFeedNudgeRendererContainer
+  const style = document.createElement('style');
+  style.textContent = `
+      .ytLrFeedNudgeRendererContainer {
+          display: none !important;
+      }
+  `;
+  document.head.appendChild(style);
+})();
