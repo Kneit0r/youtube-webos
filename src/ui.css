@@ -111,7 +111,7 @@
 
 /* Force darken the played progress bar */
 .ytLrProgressBarPlayed {
-  background-color: #008080 !important; /* Dark red */
+  background-color: #008080 !important; /* Green */
   background: #008080 !important; /* Cover gradients or inherited styles */
 }
 
