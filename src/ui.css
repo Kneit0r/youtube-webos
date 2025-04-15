@@ -1,4 +1,6 @@
 .ytaf-ui-container {
+  opacity: 0.75;
+  background-color: #008080;
   position: absolute;
   top: 10%;
   left: 10%;
@@ -6,7 +8,7 @@
   bottom: 10%;
 
   background: rgba(0, 0, 0, 0.8);
-  color: white;
+  color: rgb(126, 126, 126);
   border-radius: 20px;
   padding: 20px;
   font-size: 1.5rem;
@@ -43,7 +45,7 @@
 
 .ytaf-notification-container .message {
   background: rgba(0, 0, 0, 0.7);
-  color: white;
+  color: rgb(126, 126, 126);
   padding: 1em;
   margin: 0.5em;
   transition: all 0.3s ease-in-out;
@@ -116,4 +118,9 @@
 /* Darken the played progress bar */
 .ytLrProgressBarPlayed {
   filter: brightness(50%) !important;
+}
+
+/* Hide the nudge renderer */
+.zylon-ve.ytLrSectionListRendererContents-item-1.zylon-focus.ytLrFeedNudgeRendererFocused.ytLrFeedNudgeRendererHost.ytLrFeedNudgeRendererLeftAligned.ytLrFeedNudgeRendererAccentGradientBackgroundStyle {
+  display: none !important;
 }
